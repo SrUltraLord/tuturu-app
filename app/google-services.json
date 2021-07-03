@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "794876984756",
+    "project_id": "clift-7de67",
+    "storage_bucket": "clift-7de67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794876984756:android:eb5049a7142a2e244e46e1",
+        "android_client_info": {
+          "package_name": "com.example.clift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794876984756-88teli29t9hla8trc5rjlq9g1cqcu6da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe9COAurDGI1Q7BfGipVyp7-oFsfljHPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794876984756-88teli29t9hla8trc5rjlq9g1cqcu6da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
