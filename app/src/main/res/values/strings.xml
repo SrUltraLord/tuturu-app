@@ -8,7 +8,7 @@
     <string name="txt_no_account">¿No tienes una cuenta?</string>
     <string name="txt_register"><u>Regístrate</u></string>
 
-        <!--   Placeholders     -->
+    <!--   Placeholders     -->
     <string name="ph_ti_email">Correo Electrónico</string>
     <string name="ph_ti_password">Contraseña</string>
 
