@@ -8,30 +8,37 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:backgroundTint="@color/text_input_bg_main"
+        android:id="@+id/eTEmailAddress"
+        android:paddingHorizontal="10dp"
+        android:hint="@string/ph_ti_email"
         android:layout_width="332dp"
         android:layout_height="42dp"
+        android:background="@color/text_input_bg_main"
+        android:backgroundTint="@color/text_input_bg_main"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.195" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/eTPassword"
+        android:paddingHorizontal="10dp"
+        android:hint="@string/ph_ti_password"
         android:layout_width="332dp"
         android:layout_height="49dp"
+        android:background="@color/text_input_bg_main"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <Button
         android:id="@+id/btnLogin"
