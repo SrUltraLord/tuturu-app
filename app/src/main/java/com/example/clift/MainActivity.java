@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnLogin;
     private EditText txtEmail, txtPassword;
     private TextView txtVRegister;
+    private TextView txtVChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         txtEmail = findViewById(R.id.eTEmailAddress);
         txtPassword = findViewById(R.id.eTPassword);
         txtVRegister = findViewById(R.id.txtRegister);
+        txtVChat = findViewById(R.id.txtChat);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -53,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switchToActivity(RegisterActivity.class);
+            }
+        });
+
+        txtVChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToActivity(chatActivity.class);
             }
         });
 
