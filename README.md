@@ -1,7 +1,7 @@
 
 # CLIFT
 
-Aplicación Android para alumnos en la que éstos puedene encontrar tutores según sus
+Aplicación Android para alumnos en la que éstos pueden encontrar tutores según sus
 necesidades por materia y distancia.
 
 
