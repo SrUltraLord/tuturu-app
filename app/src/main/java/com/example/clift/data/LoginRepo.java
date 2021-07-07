@@ -34,18 +34,5 @@ public class LoginRepo {
     private void setLoggedInUser(LoggedInUser user) {
         this.user = user;
     }
-
-    public Result<LoggedInUser> login(String email, String password, Activity actividad) {
-        Result[] resultArr = dataSource.login(email, password, actividad);
-
-        Result.Success success = (Result.Success) resultArr[0];
-        Result.Error error = (Result.Error) resultArr[1];
-
-        if (success != null) {
-            return  success;
-        }
-
-        return error;
-    }
-
+    
 }

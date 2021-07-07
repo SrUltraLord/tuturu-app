@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Objeto autenticador de Firebase
         mAuth = FirebaseAuth.getInstance();
-
+        dataSource = new LoginDataSource();
         loginRepo = LoginRepo.getInstance(dataSource);
 
         // Listener del boton de Login, obtiene los strings de los campos de texto y los manda
@@ -85,25 +85,23 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+//        loginRepo.login(email, password, actividad);
 
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("TAG", "signInWithEmail:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        switchToActivity(LoggedInActivity.class);
 
-//        mAuth.signInWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, task -> {
-//                    if (task.isSuccessful()) {
-//                        // Sign in success, update UI with the signed-in user's information
-//                        Log.d("TAG", "signInWithEmail:success");
-//                        FirebaseUser user = mAuth.getCurrentUser();
-//
-//                        switchToActivity(LoggedInActivity.class);
-//                        // updateUI(user);
-//                    } else {
-//                        // If sign in fails, display a message to the user.
-//                        Log.w("TAG", "signInWithEmail:failure", task.getException());
-//                        Toast.makeText(MainActivity.this, "Usuario o contraseña incorrecto(s).",
-//                                Toast.LENGTH_SHORT).show();
-//                        // updateUI(null);
-//                    }
-//                });
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("TAG", "signInWithEmail:failure", task.getException());
+                        Toast.makeText(MainActivity.this, "Usuario o contraseña incorrecto(s).",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void switchToActivity(Class actividad) {
