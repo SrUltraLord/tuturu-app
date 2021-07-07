@@ -1,5 +1,6 @@
 package com.example.clift;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import com.example.clift.ui.student.StudentActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -93,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("TAG", "signInWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
-                        switchToActivity(LoggedInActivity.class);
+                        switchToActivity(StudentActivity.class);
 
                     } else {
                         // If sign in fails, display a message to the user.
