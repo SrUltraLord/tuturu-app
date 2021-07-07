@@ -9,6 +9,8 @@
 
     <!--  Register  -->
     <string name="txt_register_title">Regístrate</string>
+    <string name="txt_student">Estudiante</string>
+    <string name="txt_tutor">Tutor</string>
 
     <!--   Placeholders     -->
     <string name="ph_ti_email">Correo Electrónico</string>
