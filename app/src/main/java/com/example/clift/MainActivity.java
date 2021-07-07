@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Objeto autenticador de Firebase
         mAuth = FirebaseAuth.getInstance();
+
         loginRepo = LoginRepo.getInstance(dataSource);
 
         // Listener del boton de Login, obtiene los strings de los campos de texto y los manda
