@@ -15,13 +15,13 @@
     <!--  Backgrounds  -->
     <color  name="bg_main_green">#3B4547</color>
 
-
-
     <!--  Botones  -->
     <color name="btn_primary_green">#426A5A</color>
+    <color name="btn_student">#1F5673</color>
+    <color name="btn_tutor">#F2C57C</color>
 
     <!--  Campos de Texto  -->
     <color name="text_input_bg_main">#FFFFFFFF</color>
-    <color  name="text_input_border"></color>
+    <color  name="text_input_border">#FFFFFFFF</color>
 
 </resources>
