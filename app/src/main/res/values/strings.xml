@@ -29,5 +29,12 @@
     <string name="menu_map">Mapa</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--  Profile Screen  -->
+    <string name="txt_name">Nombre</string>
+    <string name="txt_age">Edad</string>
+    <string name="txt_ci">Cedula</string>
+    <string name="txt_phone">Telefono</string>
+    <string name="txt_email">Email</string>
+
 
 </resources>
