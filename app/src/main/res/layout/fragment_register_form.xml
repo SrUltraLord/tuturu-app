@@ -93,7 +93,8 @@
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Materias" />
+                    android:text="Materias"
+                    android:visibility="invisible" />
 
                 <View
                     android:id="@+id/divider"

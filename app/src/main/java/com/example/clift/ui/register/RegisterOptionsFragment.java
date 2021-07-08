@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ToggleButton;
 
 import com.example.clift.R;
@@ -21,6 +22,7 @@ import org.jetbrains.annotations.NotNull;
 public class RegisterOptionsFragment extends Fragment {
 
     private ToggleButton tBStudent, tBTutor;
+    private Button btnNext;
 
     public RegisterOptionsFragment() {
         // Required empty public constructor
@@ -39,9 +41,14 @@ public class RegisterOptionsFragment extends Fragment {
 
         tBStudent   = view.findViewById(R.id.tBStudent);
         tBTutor     = view.findViewById(R.id.tBTutor);
+        btnNext     = view.findViewById(R.id.btnNext);
 
         addListener(tBStudent, "student");
         addListener(tBTutor, "tutor");
+
+        btnNext.setOnClickListener(v -> {
+
+        });
     }
 
     private void addListener(ToggleButton tb, String userType) {
