@@ -6,116 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".ui.student.ui.profile.ProfileFragment">
 
-    <TextView
-        android:id="@+id/txt_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_name"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="231dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/pr_mail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="272dp" />
+        <EditText
+            android:id="@+id/pr_ci"
+            android:layout_width="wrap_content"
+            android:layout_height="175dp"
+            android:layout_marginBottom="232dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/txt_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Email"
-        android:text="@string/txt_email"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="284dp" />
+        <TextView
+            android:id="@+id/txt_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="472dp"
+            android:text="@string/txt_ci" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_age"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="346dp" />
+        <EditText
+            android:id="@+id/pr_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="216dp"
+            android:layout_marginEnd="60dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/pr_Edad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="328dp" />
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_name"
+            tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/pr_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="216dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txt_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_phone"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="402dp" />
+            <TextView
+                android:id="@+id/txt_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="400dp"
+                android:text="@string/txt_phone" />
 
-    <EditText
-        android:id="@+id/pr_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="388dp" />
+            <EditText
+                android:id="@+id/pr_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="388dp"
+                android:layout_marginEnd="60dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/txt_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_ci"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="470dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/pr_ci"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="457dp" />
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="284dp"
+                android:contentDescription="Email"
+                android:text="@string/txt_email" />
+
+            <EditText
+                android:id="@+id/pr_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="276dp"
+                android:layout_marginEnd="60dp"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="340dp"
+                android:text="@string/txt_age" />
+
+            <EditText
+                android:id="@+id/pr_Edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="332dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="412dp"
         android:layout_height="180dp"
         android:background="@color/azul_profile"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="112dp"
             android:layout_height="110dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="148dp"
             android:src="@drawable/mayushi"
-            app:srcCompat="@mipmap/ic_launcher"
-            tools:layout_editor_absoluteX="150dp"
-            tools:layout_editor_absoluteY="35dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Guardar"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="551dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
