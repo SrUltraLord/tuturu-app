@@ -11,6 +11,9 @@
     <string name="txt_register_title">Regístrate</string>
     <string name="txt_student">Estudiante</string>
     <string name="txt_tutor">Tutor</string>
+    <string name="txt_help">Soy un</string>
+    <string name="btn_next">Siguiente</string>
+    <string name="btn_register">Registrar</string>
 
     <!--   Placeholders     -->
     <string name="ph_ti_email">Correo Electrónico</string>
