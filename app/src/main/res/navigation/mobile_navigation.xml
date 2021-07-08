@@ -24,8 +24,8 @@
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
-        android:id="@+id/nav_map"
-        android:name="com.example.clift.ui.student.ui.map.MapsFragment"
-        android:label="@string/menu_map"
-        tools:layout="@layout/fragment_maps" />
+        android:id="@+id/nav_search"
+        android:name="com.example.clift.ui.student.ui.search.SearchFragment"
+        android:label="@string/menu_search"
+        tools:layout="@layout/search_fragment" />
 </navigation>
