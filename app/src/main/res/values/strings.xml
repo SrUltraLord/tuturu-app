@@ -39,6 +39,10 @@
     <string name="txt_ci">Cedula</string>
     <string name="txt_phone">Telefono</string>
     <string name="txt_email">Email</string>
-
+    <string name="txt_titlePetition">Solicitar Tutor</string>
+    <string name="txt_petition">Tu petición</string>
+    <string name="txt_fecha">Fecha a solicitar</string>
+    <string name="btn_solicitar">Solicitar</string>
+    <string name="txt_Calendar">Calendario</string>
 
 </resources>

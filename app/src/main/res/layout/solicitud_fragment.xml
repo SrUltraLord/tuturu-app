@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.student.ui.solicitud.solicitudFragment">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_titlePetition"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/espacio_top"
+        android:layout_centerHorizontal="true"
+        />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/petition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo"
+        android:layout_marginTop="@dimen/espacio_top"
+        android:layout_marginLeft="50dp"
+        android:hint="@string/txt_petition"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/vFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/petition"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginLeft="25dp"
+        android:text="@string/txt_fecha" />
+
+    <EditText
+        android:id="@+id/etPlannedDate"
+        android:hint="Fecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_below="@+id/vFecha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:maxLines="1" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aceptar"
+        android:text="@string/btn_solicitar"
+        android:layout_below="@id/etPlannedDate"/>
+
+
+</RelativeLayout>
