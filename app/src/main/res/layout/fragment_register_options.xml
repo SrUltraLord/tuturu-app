@@ -23,7 +23,7 @@
             android:gravity="center">
 
             <ToggleButton
-                android:id="@+id/toggleButton"
+                android:id="@+id/tBStudent"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:background="@drawable/ic_student"
@@ -46,7 +46,7 @@
             android:gravity="center">
 
             <ToggleButton
-                android:id="@+id/toggleButton2"
+                android:id="@+id/tBTutor"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:text="ToggleButton"
