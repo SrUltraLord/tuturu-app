@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_navigation"
+    app:startDestination="@id/registerOptionsFragment">
+
+    <fragment
+        android:id="@+id/registerOptionsFragment"
+        android:name="com.example.clift.ui.register.RegisterOptionsFragment"
+        android:label="fragment_register_options"
+        tools:layout="@layout/fragment_register_options" >
+        <action
+            android:id="@+id/action_registerOptionsFragment_to_registerFormFragment"
+            app:destination="@id/registerFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFormFragment"
+        android:name="com.example.clift.ui.register.RegisterFormFragment"
+        android:label="fragment_register_form"
+        tools:layout="@layout/fragment_register_form" >
+        <action
+            android:id="@+id/action_registerFormFragment_to_registerOptionsFragment"
+            app:destination="@id/registerOptionsFragment" />
+    </fragment>
+</navigation>

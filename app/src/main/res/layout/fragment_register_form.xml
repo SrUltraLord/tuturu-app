@@ -3,55 +3,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.register.RegisterFormFragment">
+    tools:context=".ui.register.RegisterFormFragment"
+    android:backgroundTint="@color/bg_main_green">
 
-
-    <ScrollView
+    <!--  Esto antes era un ScrollView :v  -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingHorizontal="15dp"
+        android:backgroundTint="@color/bg_main_green">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:paddingHorizontal="10sp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingVertical="5sp">
 
-                <EditText
-                    android:id="@+id/editTextTextPersonName2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Nombre" />
+                    android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/editTextTextPersonName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@+id/tVName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/hint_name"
+                        android:textColor="@color/txt_white"/>
+
+                    <EditText
+                        android:id="@+id/eTName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/text_input_bg_main"
+                        android:backgroundTint="@color/text_input_bg_main"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="Apellido" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tVLastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/txt_white"
+                        android:text="@string/hint_lastname" />
+
+                    <EditText
+                        android:id="@+id/eTLastname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@color/text_input_bg_main"
+                        android:backgroundTint="@color/text_input_bg_main"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:paddingHorizontal="10dp" />
+                </LinearLayout>
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingVertical="5sp">
+
+                <TextView
+                    android:id="@+id/tVCI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_white"
+                    android:text="@string/hint_ci" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/eTCI"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="C.I." />
+                    android:background="@color/text_input_bg_main"
+                    android:backgroundTint="@color/text_input_bg_main"
+                    />
 
             </LinearLayout>
 
@@ -59,28 +111,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingVertical="5sp">
 
-                <EditText
-                    android:id="@+id/editTextPhone"
+                <TextView
+                    android:id="@+id/tVPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/txt_white"
+                    android:text="@string/hint_phone" />
+
+                <EditText
+                    android:id="@+id/eTPhone"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:background="@color/text_input_bg_main"
+                    android:backgroundTint="@color/text_input_bg_main"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:paddingVertical="5sp">
 
-                <EditText
-                    android:id="@+id/editTextTextEmailAddress"
+                <TextView
+                    android:id="@+id/tVEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/txt_white"
+                    android:text="@string/hint_email" />
+
+                <EditText
+                    android:id="@+id/eTEmail"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
                     android:ems="10"
+                    android:background="@color/text_input_bg_main"
+                    android:backgroundTint="@color/text_input_bg_main"
                     android:inputType="textEmailAddress" />
             </LinearLayout>
 
@@ -90,11 +166,38 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/tVPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/txt_white"
+                    android:text="@string/ph_ti_password" />
+
+                <EditText
+                    android:id="@+id/eTPassword"
+                    android:paddingHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:background="@color/text_input_bg_main"
+                    android:backgroundTint="@color/text_input_bg_main"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_subjects"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tVSubjects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Materias"
-                    android:visibility="invisible" />
+                    android:text="@string/txt_subjects"
+                    android:textColor="@color/txt_white" />
 
                 <View
                     android:id="@+id/divider"
@@ -103,7 +206,14 @@
                     android:background="?android:attr/listDivider" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/btn_primary_green"
+                android:text="@string/btn_register" />
+
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

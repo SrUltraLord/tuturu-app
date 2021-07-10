@@ -16,10 +16,9 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="100dp"
+            android:layout_width="411dp"
             android:layout_height="49dp"
             android:gravity="center"
-            android:layout_marginLeft="15dp"
             android:text="@string/txt_help"
             android:textColor="@color/white"
             android:textSize="25sp" />
@@ -47,7 +46,9 @@
                 android:layout_height="150dp"
                 android:background="@drawable/ic_student"
                 android:backgroundTint="@color/btn_student"
-                android:textColor="@color/btn_student" />
+                android:textColor="@color/white"
+                android:textOff="."
+                android:textOn="✓" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -71,7 +72,9 @@
                 android:layout_height="150dp"
                 android:background="@drawable/ic_tutor"
                 android:backgroundTint="@color/btn_tutor"
-                android:textColor="@color/btn_tutor" />
+                android:textColor="@color/white"
+                android:textOff="."
+                android:textOn="✓" />
 
             <TextView
                 android:id="@+id/textView3"

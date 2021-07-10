@@ -5,44 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_main_green"
+    android:paddingHorizontal="25dp"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07">
+
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_weight=".70"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/app_name"
+            android:textColor="@color/txt_main_green"
+            android:textFontWeight="1000"
+            android:textSize="32dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/pBLogin"
+            style="?android:attr/progressBarStyle"
+            android:layout_weight=".30"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:visibility="visible" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/eTEmailAddress"
-        android:paddingHorizontal="10dp"
-        android:hint="@string/ph_ti_email"
-        android:layout_width="332dp"
+        android:layout_width="match_parent"
         android:layout_height="42dp"
         android:background="@color/text_input_bg_main"
         android:backgroundTint="@color/text_input_bg_main"
         android:ems="10"
+        android:hint="@string/ph_ti_email"
         android:inputType="textEmailAddress"
+        android:paddingHorizontal="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.213" />
 
     <EditText
         android:id="@+id/eTPassword"
-        android:paddingHorizontal="10dp"
-        android:hint="@string/ph_ti_password"
-        android:layout_width="332dp"
+        android:layout_width="match_parent"
         android:layout_height="49dp"
         android:background="@color/text_input_bg_main"
         android:ems="10"
+        android:hint="@string/ph_ti_password"
         android:inputType="textPassword"
+        android:paddingHorizontal="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="332dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="@string/btn_login"
         android:backgroundTint="@color/btn_primary_green"
@@ -51,54 +83,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtAppName"
-        android:textColor="@color/txt_main_green"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="44dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/app_name"
-        android:textFontWeight="1000"
-        android:textSize="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/txtRegisterHelp"
-        android:textColor="@color/txt_white"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:layout_marginBottom="292dp"
         android:text="@string/txt_no_account"
+        android:textColor="@color/txt_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtRegister"
-        android:textColor="@color/txt_main_green"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:layout_marginBottom="264dp"
         android:text="@string/txt_register"
+        android:textColor="@color/txt_main_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,9 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.clift.MainActivity;
 import com.example.clift.R;
+import com.example.clift.RegisterActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -23,6 +26,7 @@ public class RegisterOptionsFragment extends Fragment {
 
     private ToggleButton tBStudent, tBTutor;
     private Button btnNext;
+    private RegisterActivity registerActivity;
 
     public RegisterOptionsFragment() {
         // Required empty public constructor
@@ -39,6 +43,10 @@ public class RegisterOptionsFragment extends Fragment {
     public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Componente para la navegacion
+        registerActivity = (RegisterActivity) getActivity();
+
+        // Componentes UI
         tBStudent   = view.findViewById(R.id.tBStudent);
         tBTutor     = view.findViewById(R.id.tBTutor);
         btnNext     = view.findViewById(R.id.btnNext);
@@ -46,8 +54,16 @@ public class RegisterOptionsFragment extends Fragment {
         addListener(tBStudent, "student");
         addListener(tBTutor, "tutor");
 
-        btnNext.setOnClickListener(v -> {
+        tBStudent.setTextOff("");
+        tBTutor.setTextOff("");
 
+        btnNext.setOnClickListener(v -> {
+            if (!(tBStudent.isChecked() || tBTutor.isChecked())) {
+                Toast.makeText(registerActivity, "Por favor, selecciona una de las dos opciones.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+            registerActivity.navController.navigate(R.id.action_registerOptionsFragment_to_registerFormFragment);
         });
     }
 
@@ -57,6 +73,8 @@ public class RegisterOptionsFragment extends Fragment {
                 boolean isStudent = userType.equals("student");
                 tBTutor.setChecked(!isStudent);
                 tBStudent.setChecked(isStudent);
+
+                registerActivity.registerForm.setType(userType);
             }
         });
     }

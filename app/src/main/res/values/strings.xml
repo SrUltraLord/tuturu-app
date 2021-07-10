@@ -12,8 +12,16 @@
     <string name="txt_student">Estudiante</string>
     <string name="txt_tutor">Tutor</string>
     <string name="txt_help">Soy un</string>
+    <string name="txt_subjects">Materias</string>
     <string name="btn_next">Siguiente</string>
     <string name="btn_register">Registrar</string>
+
+    <string name="hint_name">Nombre</string>
+    <string name="hint_lastname">Apellido</string>
+    <string name="hint_email">Correo Electrónico</string>
+    <string name="hint_ci">Cédula de Identidad</string>
+    <string name="hint_phone">Teléfono</string>
+
 
     <!--   Placeholders     -->
     <string name="ph_ti_email">Correo Electrónico</string>

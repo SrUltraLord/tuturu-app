@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtEmail, txtPassword;
     private TextView txtVRegister;
 
+    private ProgressBar pBLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         txtEmail        = findViewById(R.id.eTEmailAddress);
         txtPassword     = findViewById(R.id.eTPassword);
         txtVRegister    = findViewById(R.id.txtRegister);
+        pBLogin         = findViewById(R.id.pBLogin);
+
+        pBLogin.setVisibility(View.INVISIBLE);
 
         // Objeto autenticador de Firebase
         mAuth = FirebaseAuth.getInstance();
@@ -59,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             String email = txtEmail.getText().toString();
             String password = txtPassword.getText().toString();
 
-            login(email, password, this);
+            login(email, password);
         });
 
         // Listener encargado de cambiar a la actividad de registro.
@@ -81,14 +87,15 @@ public class MainActivity extends AppCompatActivity {
      * @param email { String }
      * @param password { String }
      */
-    private void login(String email, String password, Activity actividad) {
+    private void login(String email, String password) {
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(MainActivity.this, "Completa todos los campos.",
                     Toast.LENGTH_SHORT).show();
             return;
         }
 
-//        loginRepo.login(email, password, actividad);
+        pBLogin.setVisibility(View.VISIBLE);
+        btnLogin.setEnabled(false);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
@@ -104,7 +111,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Usuario o contraseña incorrecto(s).",
                                 Toast.LENGTH_SHORT).show();
                     }
+
+                    pBLogin.setVisibility(View.INVISIBLE);
+                    btnLogin.setEnabled(true);
                 });
+
+
     }
 
     private void switchToActivity(Class actividad) {
