@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.example.clift.MainActivity;
 import com.example.clift.R;
 import com.example.clift.RegisterActivity;
 
@@ -25,12 +24,9 @@ import org.jetbrains.annotations.NotNull;
 public class RegisterOptionsFragment extends Fragment {
 
     private ToggleButton tBStudent, tBTutor;
-    private Button btnNext;
     private RegisterActivity registerActivity;
 
-    public RegisterOptionsFragment() {
-        // Required empty public constructor
-    }
+    public RegisterOptionsFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +45,7 @@ public class RegisterOptionsFragment extends Fragment {
         // Componentes UI
         tBStudent   = view.findViewById(R.id.tBStudent);
         tBTutor     = view.findViewById(R.id.tBTutor);
-        btnNext     = view.findViewById(R.id.btnNext);
+        Button btnNext = view.findViewById(R.id.btnNext);
 
         addListener(tBStudent, "student");
         addListener(tBTutor, "tutor");

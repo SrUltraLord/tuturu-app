@@ -1,10 +1,8 @@
 package com.example.clift;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,11 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.clift.data.LoginDataSource;
-import com.example.clift.data.LoginRepo;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -28,8 +21,6 @@ import com.example.clift.ui.student.StudentActivity;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private LoginRepo loginRepo;
-    private LoginDataSource dataSource;
 
     private Button btnLogin;
     private EditText txtEmail, txtPassword;
@@ -56,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Objeto autenticador de Firebase
         mAuth = FirebaseAuth.getInstance();
-        dataSource = new LoginDataSource();
-        loginRepo = LoginRepo.getInstance(dataSource);
 
         // Listener del boton de Login, obtiene los strings de los campos de texto y los manda
         // a la funcion login.
@@ -76,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        // FirebaseUser currentUser = mAuth.getCurrentUser();
         // updateUI;
     }
 
@@ -102,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("TAG", "signInWithEmail:success");
-                        FirebaseUser user = mAuth.getCurrentUser();
+                        // FirebaseUser user = mAuth.getCurrentUser();
                         switchToActivity(StudentActivity.class);
 
                     } else {

@@ -25,16 +25,13 @@ import com.example.clift.MainActivity;
 import com.example.clift.R;
 import com.example.clift.RegisterActivity;
 import com.example.clift.utils.validations.Validation;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,8 +42,8 @@ import java.util.Map;
 public class RegisterFormFragment extends Fragment {
 
     // Firestore
-    private FirebaseFirestore db    = FirebaseFirestore.getInstance();
-    private FirebaseAuth mAuth      = FirebaseAuth.getInstance();
+    private final FirebaseFirestore db    = FirebaseFirestore.getInstance();
+    private final FirebaseAuth mAuth      = FirebaseAuth.getInstance();
 
     private LinearLayout linearLayoutSubjects;
     private RegisterActivity registerActivity;
@@ -54,11 +51,11 @@ public class RegisterFormFragment extends Fragment {
     private EditText eTName, eTLastname, eTCI, eTPhone, eTEmail, eTPassword;
     private ProgressBar pBRegister;
     private Button btnRegister;
-    private TextView tVSubjects;
 
     private Validation validador;
 
     private Map<String, Object> userDoc;
+    private Map<String, String> materias;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,13 +74,14 @@ public class RegisterFormFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         userDoc = new HashMap<>();
+        materias = new HashMap<>();
         validador   = new Validation();
 
         registerActivity = (RegisterActivity) getActivity();
 
         linearLayoutSubjects = getActivity().findViewById(R.id.linear_layout_subjects);
 
-        tVSubjects  = getActivity().findViewById(R.id.tVSubjects);
+        TextView tVSubjects = getActivity().findViewById(R.id.tVSubjects);
 
         eTName      = getActivity().findViewById(R.id.eTName);
         eTLastname  = getActivity().findViewById(R.id.eTLastname);
@@ -104,9 +102,7 @@ public class RegisterFormFragment extends Fragment {
             tVSubjects.setVisibility(View.INVISIBLE);
         }
 
-        btnRegister.setOnClickListener(v -> {
-            registerUser();
-        });
+        btnRegister.setOnClickListener(v -> registerUser());
     }
 
 
@@ -126,6 +122,7 @@ public class RegisterFormFragment extends Fragment {
         String passwordText = eTPassword.getText().toString().trim();
 
         String userType     = registerActivity.registerForm.getType();
+        ArrayList<String> idMaterias;
 
         userDoc.put("nombre", nameText);
         userDoc.put("apellido", lastNameText);
@@ -133,6 +130,21 @@ public class RegisterFormFragment extends Fragment {
         userDoc.put("telefono", phoneText);
         userDoc.put("tipo", userType);
         userDoc.put("correo", emailText);
+
+        // En caso de que el usuario sea docente, agregar materias al arreglo.
+        if (userType.equals("tutor")) {
+            idMaterias = new ArrayList<>();
+            for (int i = 0; i < linearLayoutSubjects.getChildCount(); i++) {
+                CheckBox cb = (CheckBox) linearLayoutSubjects.getChildAt(i);
+                String materiaId = materias.get(cb.getText());
+
+                if (cb.isChecked()) {
+                    idMaterias.add(materiaId);
+                }
+            }
+            userDoc.put("materias", idMaterias);
+        }
+
 
         // Iniciar proceso de Registro
         pBRegister.setVisibility(View.VISIBLE);
@@ -170,6 +182,7 @@ public class RegisterFormFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             addDynamicCheckBox(document.getId(), document.getData().get("nombre").toString(), view);
+                            materias.put(document.getData().get("nombre").toString(), document.getId());
                         }
                     } else {
                         Log.w("TAG", "Error getting documents.", task.getException());

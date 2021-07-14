@@ -100,7 +100,7 @@
                     android:layout_height="42dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:background="@color/text_input_bg_main"
                     android:backgroundTint="@color/text_input_bg_main"
                     />
@@ -185,6 +185,19 @@
                     android:inputType="textPassword" />
             </LinearLayout>
 
+
+            <TextView
+                android:id="@+id/tVSubjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_subjects"
+                android:textColor="@color/txt_white" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="?android:attr/listDivider" />
             <LinearLayout
                 android:id="@+id/linear_layout_subjects"
                 android:layout_width="match_parent"
@@ -192,18 +205,6 @@
                 android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tVSubjects"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_subjects"
-                    android:textColor="@color/txt_white" />
-
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
             </LinearLayout>
 
             <Button
