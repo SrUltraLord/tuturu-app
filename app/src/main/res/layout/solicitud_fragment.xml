@@ -52,12 +52,55 @@
         android:layout_marginLeft="50dp"
         android:maxLines="1" />
 
+    <TextView
+        android:id="@+id/vTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPlannedDate"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginLeft="25dp"
+        android:text="Seleccione hora" />
+
+    <EditText
+        android:id="@+id/etTime"
+        android:hint="Hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_below="@+id/vTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:maxLines="1" />
+
+
+
+    <EditText
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTime"
+        android:hint="Ingrese dirección"
+        android:layout_marginTop="@dimen/espacio_top"
+        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/aceptar"
         android:text="@string/btn_solicitar"
-        android:layout_below="@id/etPlannedDate"/>
+        android:layout_below="@id/Address"
+        android:layout_marginTop="@dimen/espacio_top"
+        android:layout_marginLeft="50dp"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
 
 
 </RelativeLayout>

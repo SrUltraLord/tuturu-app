@@ -11,7 +11,7 @@
         android:id="@+id/frag_map"
         android:name="com.example.clift.ui.student.ui.map.MapsFragment"
         android:layout_width="410dp"
-        android:layout_height="436dp"
+        android:layout_height="322dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,15 +21,15 @@
     <fragment
         android:id="@+id/frag_sol"
         android:name="com.example.clift.ui.student.ui.solicitud.solicitudFragment"
-        android:layout_width="407dp"
-        android:layout_height="296dp"
+        android:layout_width="409dp"
+        android:layout_height="408dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frag_map"
-        app:layout_constraintVertical_bias="0.987"
+        app:layout_constraintVertical_bias="1.0"
         tools:layout="@layout/solicitud_fragment" />
 
 
