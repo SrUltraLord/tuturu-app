@@ -1,4 +1,4 @@
-package com.example.clift.ui.student.ui.gallery;
+package com.example.clift.ui.tutor.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

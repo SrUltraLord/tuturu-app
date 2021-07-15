@@ -33,6 +33,10 @@
             android:name=".ui.student.StudentActivity"
             android:label="@string/title_activity_student"
             android:theme="@style/Theme.CLIFT.NoActionBar" />
+        <activity
+            android:name=".ui.tutor.TutorActivity"
+            android:label="@string/title_activity_tutor"
+            android:theme="@style/Theme.CLIFT.NoActionBar"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoggedInActivity" />
         <activity android:name=".MainActivity">

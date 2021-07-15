@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.clift.data.LoginRepo;
 import com.example.clift.data.model.LoggedInUser;
+import com.example.clift.ui.tutor.TutorActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -150,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                                             if (type.equals("student")) {
                                                 switchToActivity(StudentActivity.class);
                                             } else {
-                                                switchToActivity(RegisterActivity.class);
+                                                switchToActivity(TutorActivity.class);
                                             }
                                         }
 

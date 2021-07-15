@@ -2,6 +2,10 @@
 
     <string name="app_name">Tuturu</string>
 
+    <!--  Titles  -->
+    <string name="title_activity_student">StudentActivity</string>
+    <string name="title_activity_tutor">TutorActivity</string>
+
     <!--  Login Screen  -->
     <string name="btn_login">Iniciar Sesión</string>
     <string name="txt_register"><u>Regístrate</u></string>
@@ -26,7 +30,6 @@
     <!--   Placeholders     -->
     <string name="ph_ti_email">Correo Electrónico</string>
     <string name="ph_ti_password">Contraseña</string>
-    <string name="title_activity_student">StudentActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
