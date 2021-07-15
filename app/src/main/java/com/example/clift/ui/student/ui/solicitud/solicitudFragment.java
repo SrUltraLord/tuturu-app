@@ -9,6 +9,8 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
@@ -109,22 +111,20 @@ public class solicitudFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(),
+                        android.R.style.Theme_Holo_Dialog_MinWidth,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 tHour = hourOfDay;
                                 tMinute = minute;
 
-                                Calendar calendar = Calendar.getInstance();
-
-                                calendar.set(0,0,0,tHour,tMinute);
 
                                 String time = tHour + ":" + tMinute;
-                                SimpleDateFormat format1 = new SimpleDateFormat("hh:mm aa");
+                                SimpleDateFormat f24hours = new SimpleDateFormat("hh:mm");
 
                                 try {
-                                    Date date = format1.parse(time);
-
+                                    Date date = f24hours.parse(time);
+                                    SimpleDateFormat format1 = new SimpleDateFormat("hh:mm aa");
                                     txtTime.setText(format1.format(date));
 
                                 } catch (ParseException e) {
@@ -134,6 +134,7 @@ public class solicitudFragment extends Fragment {
                             }
                         },12,0,false
                 );
+                timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 timePickerDialog.updateTime(tHour,tMinute);
 
                 timePickerDialog.show();

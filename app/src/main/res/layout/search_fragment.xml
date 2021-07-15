@@ -10,8 +10,8 @@
     <fragment
         android:id="@+id/frag_map"
         android:name="com.example.clift.ui.student.ui.map.MapsFragment"
-        android:layout_width="410dp"
-        android:layout_height="322dp"
+        android:layout_width="412dp"
+        android:layout_height="301dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
