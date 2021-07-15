@@ -2,14 +2,22 @@ package com.example.clift.data.model;
 
 public class LoggedInUser {
 
-    private String userId, displayName, type;
+    private String userId, displayName, type, ci, telefono, correo;
 
-    public LoggedInUser() {}
+    public LoggedInUser() {
+        this.userId = "";
+        this.displayName = "";
+        this.type = "";
+        this.ci = "";
+    }
 
-    public LoggedInUser(String userId, String displayName, String type) {
+    public LoggedInUser(String userId, String displayName, String type, String ci, String telefono, String correo) {
         this.userId = userId;
         this.displayName = displayName;
         this.type = type;
+        this.ci = ci;
+        this.telefono = telefono;
+        this.correo = correo;
     }
 
     // Metodos Get y Set
@@ -35,5 +43,29 @@ public class LoggedInUser {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCi() {
+        return ci;
+    }
+
+    public void setCi(String ci) {
+        this.ci = ci;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }

@@ -1,38 +1,45 @@
 package com.example.clift.data;
 
-import android.app.Activity;
-
 import com.example.clift.data.model.LoggedInUser;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginRepo {
 
     private static volatile LoginRepo instance;
-    private LoginDataSource dataSource;
+    private FirebaseUser fBUser = null;
     private LoggedInUser user = null;
 
-    private LoginRepo(LoginDataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+    private LoginRepo() {  }
 
-    public static LoginRepo getInstance(LoginDataSource dataSource) {
+    // Singleton para que varias actividades puedan consumir el mismo objeto.
+    public static LoginRepo getInstance() {
         if (instance == null) {
-            instance = new LoginRepo(dataSource);
+            instance = new LoginRepo();
         }
-
         return instance;
     }
 
     public boolean isLoggedIn() {
-        return user != null;
+        return fBUser != null;
     }
 
     public void logout() {
-        user = null;
-        dataSource.logout();
+        fBUser = null;
     }
 
-    private void setLoggedInUser(LoggedInUser user) {
+    public void setFirebaseUser(FirebaseUser fbu) {
+        this.fBUser = fbu;
+    }
+
+    public void setUser(LoggedInUser user) {
         this.user = user;
     }
-    
+
+    public FirebaseUser getfBUser() {
+        return fBUser;
+    }
+
+    public LoggedInUser getUser() {
+        return user;
+    }
 }

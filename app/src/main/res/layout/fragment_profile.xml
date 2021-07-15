@@ -42,10 +42,11 @@
 
         <EditText
             android:id="@+id/pr_name"
+            android:inputType="none"
+            android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             tools:layout_editor_absoluteY="1095dp" />
 
         <View
@@ -64,10 +65,11 @@
 
         <EditText
             android:id="@+id/pr_ci"
+            android:inputType="none"
+            android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:ems="10" />
 
         <View
             android:id="@+id/divider3"
@@ -86,10 +88,11 @@
 
         <EditText
             android:id="@+id/pr_mail"
+            android:inputType="none"
+            android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
             tools:layout_editor_absoluteY="2443dp"
             android:importantForAutofill="no" />
 
@@ -109,10 +112,11 @@
 
         <EditText
             android:id="@+id/pr_phone"
+            android:inputType="none"
+            android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
             tools:layout_editor_absoluteY="1883dp" />
 
         <View
@@ -120,22 +124,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
-
-        <TextView
-            android:id="@+id/txt_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_age"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="2784dp" />
-
-        <EditText
-            android:id="@+id/pr_Edad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            tools:layout_editor_absoluteY="3116dp" />
 
     </LinearLayout>
 
