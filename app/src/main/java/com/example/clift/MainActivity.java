@@ -146,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
 
                                             // Si es estudiante, ir a StudentActivity.
                                             if (type.equals("student")) {
-//                                                switchToActivity(StudentActivity.class);
-                                                switchToActivity(LoggedInActivity.class);
+                                                switchToActivity(StudentActivity.class);
+//                                                switchToActivity(LoggedInActivity.class);
                                             } else {
                                                 switchToActivity(TutorActivity.class);
                                             }
