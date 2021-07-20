@@ -45,6 +45,8 @@ public class LoggedInActivity extends AppCompatActivity {
 
         // Para POST
         // Armar la URL del servidor.
+        // Esto se debe cambiar a la IP de la VPN.
+        // IP -> 26.22.204.60
         String serverUrl = "http://192.168.100.39:5000";
 
         retrofit = new Retrofit.Builder()
@@ -95,6 +97,7 @@ public class LoggedInActivity extends AppCompatActivity {
     private void getStudents() {
 
         // Mandar todos estos parametros como STRING porfis gracias.
+        // Del tutor
         params.put("lat", "-0.288356");
         params.put("lng", "-78.469716");
         params.put("tutorEmail", "jsins@espe.edu.ec");
@@ -120,11 +123,38 @@ public class LoggedInActivity extends AppCompatActivity {
                 // Tenemos los datos, imprimir.
                 Log.println(Log.INFO, "Hurra: ", res.toString());
 
+                // Ejemplo en JSON de la respuesta del servidor
+//                {
+//                    "ok": true,
+//                        "peticiones": [
+    //                      {
+    //                        "fechaHora": "2021-07-15T20:00:00.000Z",
+    //                        "isOnline": false,
+    //                        "materia": "Física",
+    //                        "direccion": "Mira",
+    //                        "alumno": {
+    //                              "correo": "jdrosero1@espe.edu.ec",
+    //                              "telefono": "0987079644",
+    //                              "apellido": "Rosero",
+    //                              "nombre": "Llandely",
+    //                              "tipo": "student",
+    //                              "ci": "0401786140"
+    //                       }
+    //                    },
+    //                    ...
+    //                  ]
+//                 }
+
                 for (int i = 0; i < res.getPeticiones().length; i++) {
                     Student alumno = res.getPeticiones()[i].getAlumno();
+
+                    // Para sacar datos del almuno
                     Log.println(Log.INFO, "Nombre: ", alumno.getNombre());
                     Log.println(Log.INFO, "Apellido: ", alumno.getApellido());
                     Log.println(Log.INFO, "CI: ", alumno.getCi());
+
+                    // Para sacar datos de la peticion
+                    Log.println(Log.INFO, "Ubicacion: ", res.getPeticiones()[i].getDireccion());
                 }
 
             }

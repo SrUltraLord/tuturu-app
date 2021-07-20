@@ -6,14 +6,16 @@ public class Peticion {
 
     private Date fechaHora;
     private boolean isOnline;
+    private String direccion;
     private Student alumno;
 
     public Peticion() {
     }
 
-    public Peticion(Date fechaHora, boolean isOnline, Student alumno) {
+    public Peticion(Date fechaHora, boolean isOnline, String direccion, Student alumno) {
         this.fechaHora = fechaHora;
         this.isOnline = isOnline;
+        this.direccion = direccion;
         this.alumno = alumno;
     }
 
@@ -42,11 +44,20 @@ public class Peticion {
         this.alumno = alumno;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
     @Override
     public String toString() {
         return "Peticion{" +
                 "fechaHora=" + fechaHora +
                 ", isOnline=" + isOnline +
+                ", direccion=" + direccion +
                 ", alumno=" + alumno.toString() +
                 '}';
     }
