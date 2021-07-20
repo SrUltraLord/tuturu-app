@@ -22,4 +22,9 @@
         android:name="com.example.clift.ui.tutor.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_request"
+        android:name="com.example.clift.ui.tutor.ui.Request.requestFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
 </navigation>
