@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        // FirebaseUser currentUser = mAuth.getCurrentUser();
-        // updateUI;
     }
 
     /**
@@ -139,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                                             loginRepo.setUser(new LoggedInUser(
-                                                    "",
+                                                    user.getUid(),
                                                     name + " " + lastName,
                                                     type,
                                                     ci,
@@ -170,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
                     btnLogin.setEnabled(true);
                 });
 
-
     }
 
     /**
@@ -185,22 +181,6 @@ public class MainActivity extends AppCompatActivity {
             login(email, password);
         }
     }
-
-//    private LoggedInUser getUserInfo(FirebaseUser firebaseUser) {
-//        LoggedInUser user = new LoggedInUser();
-//
-//        db.collection("usuarios")
-//                .whereEqualTo("correo", firebaseUser.getEmail())
-//                .get()
-//                .addOnCompleteListener(task -> {
-//                   if (task.isSuccessful()) {
-//
-//                   }
-//                });
-//
-//
-//        return user;
-//    }
 
     private void switchToActivity(Class actividad) {
         Intent switchActivityIntent = new Intent(this, actividad);
