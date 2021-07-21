@@ -49,6 +49,11 @@ public class requestFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(RequestViewModel.class);
         // TODO: Use the ViewModel
     }
+    public void request(){
+        
+    }
+
+
     public  void init(){
         elements = new ArrayList<>();
         elements.add(new ListElement("#31BEB2", "Pato","Esparta","Activo"));
