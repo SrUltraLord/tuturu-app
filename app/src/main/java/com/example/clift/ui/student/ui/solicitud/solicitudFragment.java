@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.clift.MainActivity;
 import com.example.clift.R;
 import com.example.clift.data.LoginRepo;
 import com.example.clift.ui.student.ui.map.MapsFragment;
@@ -84,6 +85,7 @@ public class solicitudFragment extends Fragment {
     private final FirebaseFirestore db    = FirebaseFirestore.getInstance();
 
     private Map<String, Object> userDoc;
+    private List<Materia> materias;
 
 
 
@@ -273,7 +275,14 @@ public class solicitudFragment extends Fragment {
 
         String hash = GeoFireUtils.getGeoHashForLocation(new GeoLocation(lat, lng));
 
-        String Mat = spSubject.getSelectedItem().toString();
+        String Mat = "";
+
+        for(Materia m:materias){
+            if(m.nombre.equals(spSubject.getSelectedItem().toString())){
+                Mat = m.id;
+                break;
+            }
+        }
 
         String correo = loginRepo.getUser().getCorreo();
 
@@ -292,13 +301,24 @@ public class solicitudFragment extends Fragment {
         userDoc.put("ubicacion", latLng);
         userDoc.put("ubicacionHash", hash);
 
-        System.out.println(userDoc.toString());
-        Log.d(TAG, userDoc.toString());
+//        System.out.println(userDoc.toString());
+
+        db.collection("reuniones")
+                .add(userDoc)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(getActivity() , "Solicitud enviada.",
+                            Toast.LENGTH_SHORT).show();
+                            cleanField();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getActivity(), "La solicitud no ha sido enviada.",
+                            Toast.LENGTH_SHORT).show();
+                });
 
     }
 
     private void fetchSubjects() {
-        final List<Materia> materias = new ArrayList<>();
+        materias = new ArrayList<>();
         db.collection("materias")
                 .get()
                 .addOnCompleteListener(task -> {
@@ -314,5 +334,12 @@ public class solicitudFragment extends Fragment {
                         Log.w("TAG", "Error getting documents.", task.getException());
                     }
                 });
+    }
+
+    private void cleanField(){
+        txtSolicitud.setText("");
+        btnCalendar.setText("");
+        txtTime.setText("");
+        txtAddress.setText("");
     }
 }
