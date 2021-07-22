@@ -263,8 +263,7 @@ public class solicitudFragment extends Fragment {
         Date fechaHora;
         System.out.println(btnCalendar.getText().toString() + ' ' +txtTime.getText().toString());
         try {
-            TimeZone utc = TimeZone.getTimeZone("Etc/UTC");
-            format.setTimeZone(utc);
+            format.setTimeZone(TimeZone.getTimeZone("UTC"));
             fechaHora = format.parse(btnCalendar.getText().toString().trim() + ' ' +txtTime.getText().toString().trim());
 
 
