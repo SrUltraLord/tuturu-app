@@ -6,104 +6,149 @@
     android:layout_height="match_parent"
     tools:context=".ui.student.ui.solicitud.solicitudFragment">
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_titlePetition"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
-        />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/petition"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titulo"
-        android:layout_marginTop="@dimen/espacio_top"
-        android:layout_marginLeft="50dp"
-        android:hint="@string/txt_petition"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal"/>
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/vFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/petition"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:layout_marginLeft="25dp"
-        android:text="@string/txt_fecha" />
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_titlePetition"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            />
+        <EditText
+            android:id="@+id/petition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titulo"
+            android:layout_marginTop="@dimen/espacio_top"
+            android:layout_marginLeft="50dp"
+            android:hint="@string/txt_petition"
+            android:layout_centerHorizontal="true"
+            android:textStyle="normal"/>
 
-    <EditText
-        android:id="@+id/etPlannedDate"
-        android:hint="Fecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:focusable="false"
-        android:clickable="true"
-        android:layout_below="@+id/vFecha"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:maxLines="1"
-        android:textStyle="normal"/>
+        <TextView
+            android:id="@+id/vFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/petition"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="25dp"
+            android:text="@string/txt_fecha" />
 
-    <TextView
-        android:id="@+id/vTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPlannedDate"
-        android:layout_marginTop="10dp"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:layout_marginLeft="25dp"
-        android:text="Seleccione hora" />
+        <EditText
+            android:id="@+id/etPlannedDate"
+            android:hint="Fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_below="@+id/vFecha"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:maxLines="1"
+            android:textStyle="normal"/>
 
-    <EditText
-        android:id="@+id/etTime"
-        android:hint="Hora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:focusable="false"
-        android:clickable="true"
-        android:layout_below="@+id/vTime"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:maxLines="1"
-        android:textStyle="normal"/>
+        <TextView
+            android:id="@+id/vTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etPlannedDate"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="25dp"
+            android:text="Seleccione hora" />
+
+        <EditText
+            android:id="@+id/etTime"
+            android:hint="Hora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_below="@+id/vTime"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="50dp"
+            android:maxLines="1"
+            android:textStyle="normal"/>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/etTime"
+            android:text="Clase en línea" />
+
+        <TextView
+            android:id="@+id/vAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBox"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="25dp"
+            android:text="Dirección" />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vAddress"
+            android:hint="Ingrese dirección"
+            android:layout_marginTop="@dimen/espacio_top"
+            android:layout_marginLeft="50dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:id="@+id/vSubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Address"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="25dp"
+            android:text="Materia referente" />
+
+        <Spinner
+            android:id="@+id/Subjects"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vSubject"
+            android:layout_marginTop="@dimen/espacio_top"
+            android:layout_marginLeft="50dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="normal"/>
 
 
+        <Button
+            android:id="@+id/aceptar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_solicitar"
+            android:layout_below="@id/Subjects"
+            android:layout_marginTop="@dimen/espacio_top"
+            android:layout_marginLeft="50dp"
+            android:layout_centerHorizontal="true"/>
 
-    <EditText
-        android:id="@+id/Address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etTime"
-        android:hint="Ingrese dirección"
-        android:layout_marginTop="@dimen/espacio_top"
-        android:layout_marginLeft="50dp"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal"/>
+    </RelativeLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/aceptar"
-        android:text="@string/btn_solicitar"
-        android:layout_below="@id/Address"
-        android:layout_marginTop="@dimen/espacio_top"
-        android:layout_marginLeft="50dp"
-        android:layout_centerHorizontal="true"/>
-
-
-
-
-
-
+</ScrollView>
 </RelativeLayout>

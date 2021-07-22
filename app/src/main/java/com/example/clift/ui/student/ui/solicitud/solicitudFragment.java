@@ -23,15 +23,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.clift.R;
+import com.example.clift.data.LoginRepo;
 import com.example.clift.ui.student.ui.map.MapsFragment;
+import com.firebase.geofire.GeoFireUtils;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
@@ -39,12 +45,24 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
@@ -53,11 +71,19 @@ public class solicitudFragment extends Fragment {
 
     private SolicitudViewModel mViewModel;
     private DatePickerDialog.OnDateSetListener dateSetListener;
-    private EditText btnCalendar, txtAddress, txtTime;
+    private EditText btnCalendar, txtAddress, txtTime, txtSolicitud;
+    private Spinner spSubject;
+    private LoginRepo loginRepo;
+    private CheckBox isOnline;
+    private Button btnSolicitar;
 
     public Bundle pasoDatos = new Bundle();
     private double lat, lng;
     private int tHour, tMinute;
+
+    private final FirebaseFirestore db    = FirebaseFirestore.getInstance();
+
+    private Map<String, Object> userDoc;
 
 
 
@@ -72,6 +98,14 @@ public class solicitudFragment extends Fragment {
 
         btnCalendar = root.findViewById(R.id.etPlannedDate);
         txtTime = root.findViewById(R.id.etTime);
+        spSubject = root.findViewById(R.id.Subjects);
+        txtSolicitud = root.findViewById(R.id.petition);
+        isOnline = root.findViewById(R.id.checkBox);
+        btnSolicitar = root.findViewById(R.id.aceptar);
+
+        loginRepo = LoginRepo.getInstance();
+
+        userDoc = new HashMap<>();
 
         // Creacion de calendario
         btnCalendar.setOnClickListener(new View.OnClickListener(){
@@ -120,11 +154,11 @@ public class solicitudFragment extends Fragment {
 
 
                                 String time = tHour + ":" + tMinute;
-                                SimpleDateFormat f24hours = new SimpleDateFormat("hh:mm");
+                                SimpleDateFormat f24hours = new SimpleDateFormat("HH:mm");
 
                                 try {
                                     Date date = f24hours.parse(time);
-                                    SimpleDateFormat format1 = new SimpleDateFormat("hh:mm aa");
+                                    SimpleDateFormat format1 = new SimpleDateFormat("HH:mm");
                                     txtTime.setText(format1.format(date));
 
                                 } catch (ParseException e) {
@@ -132,7 +166,7 @@ public class solicitudFragment extends Fragment {
                                 }
 
                             }
-                        },12,0,false
+                        },12,0,true
                 );
                 timePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 timePickerDialog.updateTime(tHour,tMinute);
@@ -163,6 +197,23 @@ public class solicitudFragment extends Fragment {
 
             }
         });
+
+        isOnline.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if(isOnline.isChecked()){
+                   txtAddress.setVisibility(View.INVISIBLE);
+                }else{
+                    txtAddress.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+
+        fetchSubjects();
+
+        btnSolicitar.setOnClickListener(v -> agregarSolicitud());
 
         return root;
     }
@@ -196,5 +247,72 @@ public class solicitudFragment extends Fragment {
                     Toast.LENGTH_SHORT).show();
 
         }
+
+
+    }
+
+
+
+    private void agregarSolicitud (){
+        HashMap<String, Object> latLng = new HashMap<>();
+        String solicitud = txtSolicitud.getText().toString().trim();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        Date fechaHora;
+        System.out.println(btnCalendar.getText().toString() + ' ' +txtTime.getText().toString());
+        try {
+            fechaHora = format.parse(btnCalendar.getText().toString() + ' ' +txtTime.getText().toString());
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            fechaHora = new Date();
+        }
+
+        String direccion = txtAddress.getText().toString().trim();
+        double latitud = lat;
+        double longitud = lng;
+
+        String hash = GeoFireUtils.getGeoHashForLocation(new GeoLocation(lat, lng));
+
+        String Mat = spSubject.getSelectedItem().toString();
+
+        String correo = loginRepo.getUser().getCorreo();
+
+        boolean enLinea = isOnline.isChecked();
+
+        latLng.put("lat",latitud);
+        latLng.put("lng", longitud);
+
+        userDoc.put("mensaje", solicitud);
+        userDoc.put("correoAlumno", correo);
+        userDoc.put("direccion", direccion);
+        userDoc.put("estado", "pendiente");
+        userDoc.put("fechaHora", fechaHora);
+        userDoc.put("idMateria", Mat);
+        userDoc.put("isOnline", enLinea);
+        userDoc.put("ubicacion", latLng);
+        userDoc.put("ubicacionHash", hash);
+
+        System.out.println(userDoc.toString());
+        Log.d(TAG, userDoc.toString());
+
+    }
+
+    private void fetchSubjects() {
+        final List<Materia> materias = new ArrayList<>();
+        db.collection("materias")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            String id = document.getId();
+                            String nombre = document.getData().get("nombre").toString();
+                            materias.add(new Materia(id, nombre));
+                        }
+                        ArrayAdapter<Materia> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_dropdown_item_1line, materias);
+                        spSubject.setAdapter(arrayAdapter);
+                    } else {
+                        Log.w("TAG", "Error getting documents.", task.getException());
+                    }
+                });
     }
 }
