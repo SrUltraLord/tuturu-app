@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
+import android.icu.util.TimeZone;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -258,11 +259,14 @@ public class solicitudFragment extends Fragment {
     private void agregarSolicitud (){
         HashMap<String, Object> latLng = new HashMap<>();
         String solicitud = txtSolicitud.getText().toString().trim();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy' 'HH:mm");
         Date fechaHora;
         System.out.println(btnCalendar.getText().toString() + ' ' +txtTime.getText().toString());
         try {
-            fechaHora = format.parse(btnCalendar.getText().toString() + ' ' +txtTime.getText().toString());
+            TimeZone utc = TimeZone.getTimeZone("Etc/UTC");
+            format.setTimeZone(utc);
+            fechaHora = format.parse(btnCalendar.getText().toString().trim() + ' ' +txtTime.getText().toString().trim());
+
 
         } catch (ParseException e) {
             e.printStackTrace();
