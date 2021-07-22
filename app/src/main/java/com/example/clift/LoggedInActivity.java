@@ -59,41 +59,6 @@ public class LoggedInActivity extends AppCompatActivity {
         getStudents();
     }
 
-    /*
-    private void getSimpleRes() {
-        params.put("lat", "-0.288356");
-        params.put("lng", "-78.469716");
-        params.put("tutorEmail", "jsins@espe.edu.ec");
-
-        Call<PostSimple> call = api.getPost(params);
-
-        call.enqueue(new Callback<PostSimple>() {
-            @Override
-            public void onResponse(Call<PostSimple> call, Response<PostSimple> response) {
-                if (!response.isSuccessful()) {
-                    Log.println(Log.INFO, "Error: ", "En el servidor.");
-                    return;
-                }
-
-                PostSimple res = response.body();
-
-                if (!res.isOk()) {
-                    Log.println(Log.INFO, "Error: ", "Al obtener los datos.");
-                    return;
-                }
-
-                Log.println(Log.INFO, "Exito: ", res.toString());
-            }
-
-            @Override
-            public void onFailure(Call<PostSimple> call, Throwable t) {
-                Log.println(Log.ERROR, "Error: ", t.getMessage());
-                Log.println(Log.ERROR, "Error: ", "Efe");
-            }
-        });
-    }
-    */
-
     private void getStudents() {
 
         // Mandar todos estos parametros como STRING porfis gracias.

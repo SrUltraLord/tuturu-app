@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Peticion {
 
+    private String id;
     private Date fechaHora;
     private boolean isOnline;
     private String direccion;
@@ -12,7 +13,8 @@ public class Peticion {
     public Peticion() {
     }
 
-    public Peticion(Date fechaHora, boolean isOnline, String direccion, Student alumno) {
+    public Peticion(String id, Date fechaHora, boolean isOnline, String direccion, Student alumno) {
+        this.id = id;
         this.fechaHora = fechaHora;
         this.isOnline = isOnline;
         this.direccion = direccion;
@@ -20,6 +22,14 @@ public class Peticion {
     }
 
     // Metodos Get y Set
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public Date getFechaHora() {
         return fechaHora;
     }

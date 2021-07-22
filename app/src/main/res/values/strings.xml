@@ -26,6 +26,9 @@
     <string name="hint_ci">Cédula de Identidad</string>
     <string name="hint_phone">Teléfono</string>
 
+    <!--  Pantalla de Peticiones  -->
+    <string name="title_peticiones">Peticiones</string>
+    <string name="btn_aceptar">Aceptar</string>
 
     <!--   Placeholders     -->
     <string name="ph_ti_email">Correo Electrónico</string>
