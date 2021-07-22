@@ -1,8 +1,10 @@
 package com.example.clift.ui.tutor.ui.Request;
 
+import java.io.Serializable;
+
 //package com.example.clift.ui.tutor;
 //Lista de peticiones por parte de la interfaz de maestros
-public class ListElement {
+public class ListElement implements Serializable {
     public String color;
     public String name;
     public String city;

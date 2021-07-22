@@ -55,6 +55,18 @@
                     android:layout_height="wrap_content"
                     android:text="Quito"
                     android:textSize="18sp"/>
+                <Button
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/button_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:onClick="pendiente"
+                    app:cornerRadius="20dp"
+                    android:backgroundTint="#24a0ed"
+                    />
+
+
             </LinearLayout>
             <TextView
                 android:id="@+id/statusTextview"

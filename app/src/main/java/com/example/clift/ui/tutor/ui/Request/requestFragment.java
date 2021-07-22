@@ -5,10 +5,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
+
+import android.content.Intent;
+import android.media.audiofx.AudioEffect;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -35,11 +40,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import javax.xml.namespace.QName;
+
 
 public class requestFragment extends Fragment {
     // Constantes
@@ -101,6 +110,7 @@ public class requestFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.P)
     public  void init(){
         elements = new ArrayList<>();
+
 
         // Obtenemos la latitud y la longitud.
         try {
@@ -165,7 +175,12 @@ public class requestFragment extends Fragment {
                             peticion.isOnline() ? "En línea" : "Presencial"));
                 }
 
-                ListAdapter listAdapter = new ListAdapter(elements, getContext());
+                ListAdapter listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(ListElement item) {
+
+                    }
+                });
                 RecyclerView recyclerView = getActivity().findViewById(R.id.listRecyclerView);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -178,6 +193,17 @@ public class requestFragment extends Fragment {
                 Log.println(Log.ERROR, "Error POST: ", t.getMessage());
             }
         });
+    }
+
+
+
+
+
+    public void moveToDescription(ListElement item){
+        Intent intent = new Intent(getContext(),DescriptionActivity.class);
+
+        intent.putExtra("ListElement", item);
+        startActivity(intent);
     }
 
 }
