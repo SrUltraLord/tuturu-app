@@ -169,18 +169,14 @@ public class requestFragment extends Fragment {
                     Student alumno = peticion.getAlumno();
 
                     elements.add(new ListElement(
+                            peticion.getId(),
                             peticion.isOnline() ? "#31BEB2" : "#e05248",
                             alumno.getNombre() + " " + alumno.getApellido(),
                             peticion.getDireccion(),
                             peticion.isOnline() ? "En línea" : "Presencial"));
                 }
 
-                ListAdapter listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(ListElement item) {
-
-                    }
-                });
+                ListAdapter listAdapter = new ListAdapter(elements, getContext(), item -> moveToDescription(item));
                 RecyclerView recyclerView = getActivity().findViewById(R.id.listRecyclerView);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
