@@ -139,8 +139,8 @@
         <fragment
             android:id="@+id/frag_map"
             android:name="com.example.clift.ui.student.ui.map.MapsFragment"
-            android:layout_width="365dp"
-            android:layout_height="179dp"
+            android:layout_width="375dp"
+            android:layout_height="209dp"
             android:layout_below="@+id/Address"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"

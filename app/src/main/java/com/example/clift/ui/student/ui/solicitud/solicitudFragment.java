@@ -301,7 +301,7 @@ public class solicitudFragment extends Fragment {
         userDoc.put("ubicacion", latLng);
         userDoc.put("ubicacionHash", hash);
 
-//        System.out.println(userDoc.toString());
+        System.out.println(userDoc.toString());
 
         db.collection("reuniones")
                 .add(userDoc)
