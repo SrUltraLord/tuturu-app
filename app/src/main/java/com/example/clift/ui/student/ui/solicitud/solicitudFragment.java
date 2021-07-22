@@ -241,7 +241,7 @@ public class solicitudFragment extends Fragment {
             pasoDatos.putDouble("lat", lat);
             pasoDatos.putDouble("lng", lng);
 
-            getParentFragmentManager().setFragmentResult("key", pasoDatos);
+            getChildFragmentManager().setFragmentResult("key", pasoDatos);
 
         }else if(resultCode == AutocompleteActivity.RESULT_ERROR){
             Status status = Autocomplete.getStatusFromIntent(data);
