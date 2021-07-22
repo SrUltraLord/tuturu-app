@@ -106,9 +106,16 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                         "correoTutor", loginRepo.getUser().getCorreo())
                 .addOnSuccessListener(documentReference -> {
                     Log.d("Hurra", "actualizarDocumento: Actualizado");
+                    Toast.makeText(context, "Petición asignada.",
+                            Toast.LENGTH_SHORT).show();
+
+                    // Actualizar la Interfaz.
+
                 })
                 .addOnFailureListener(e -> {
                     Log.d("Cacuteado", "actualizarDocumento: hijole");
+                    Toast.makeText(context, "Lo sentimos, la petición no ha podido ser asignada.",
+                            Toast.LENGTH_SHORT).show();
                 });
     }
 
