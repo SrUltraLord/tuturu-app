@@ -50,8 +50,6 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -69,7 +67,6 @@ public class ProfileFragment extends Fragment {
         LoggedInUser user = loginRepo.getUser();
 
         setEditTextValues(user);
-
     }
 
     @Override

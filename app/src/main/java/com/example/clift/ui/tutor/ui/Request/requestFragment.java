@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.clift.R;
 import com.example.clift.data.LoginRepo;
@@ -67,6 +68,9 @@ public class requestFragment extends Fragment {
     private LocationManager locationManager;
     private LoginRepo loginRepo;
 
+    // UI Components
+    public ProgressBar pbPeticiones;
+
     public static requestFragment newInstance() {
         return new requestFragment();
     }
@@ -86,6 +90,10 @@ public class requestFragment extends Fragment {
 
         // Instanciamos el locationManager
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+        // Hacemos invisible el Spinner de las peticiones.
+        pbPeticiones = getActivity().findViewById(R.id.pBPeticiones);
+        pbPeticiones.setVisibility(View.INVISIBLE);
 
         // Para POST
         // Armar la URL del servidor.
@@ -111,7 +119,6 @@ public class requestFragment extends Fragment {
     public  void init(){
         elements = new ArrayList<>();
 
-
         // Obtenemos la latitud y la longitud.
         try {
             if (ContextCompat.checkSelfPermission(
@@ -127,7 +134,8 @@ public class requestFragment extends Fragment {
 
         String tutorEmail = loginRepo.getUser().getCorreo();
 
-        // No c como detener esta madre :'v
+        pbPeticiones.setVisibility(View.VISIBLE);
+
         locationManager.requestSingleUpdate(
                 LocationManager.GPS_PROVIDER,
                 location -> {
@@ -181,23 +189,21 @@ public class requestFragment extends Fragment {
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(listAdapter);
+
+                pbPeticiones.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onFailure(Call<PostStudentsReq> call, Throwable t) {
                 // Sacar un Snackbar
                 Log.println(Log.ERROR, "Error POST: ", t.getMessage());
+                pbPeticiones.setVisibility(View.INVISIBLE);
             }
         });
     }
 
-
-
-
-
     public void moveToDescription(ListElement item){
         Intent intent = new Intent(getContext(),DescriptionActivity.class);
-
         intent.putExtra("ListElement", item);
         startActivity(intent);
     }
