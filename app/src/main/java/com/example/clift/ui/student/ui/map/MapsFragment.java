@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.clift.R;
+import com.example.clift.databinding.SolicitudFragmentBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -49,10 +50,9 @@ public class MapsFragment extends Fragment {
                 public void onFragmentResult(@NonNull @NotNull String requestKey, @NonNull @NotNull Bundle result) {
                     lat = result.getDouble("lat");
                     lng = result.getDouble("lng");
-                    Log.println(Log.INFO,"lat", String.valueOf(lat));
-                    Log.println(Log.INFO,"lng", String.valueOf(lng));
                     LatLng coords = new LatLng(lat, lng);
                     marker.setPosition(coords);
+
                     googleMap.moveCamera(CameraUpdateFactory.newLatLng(coords));
                     googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(coords,18),5000 , null);
 
