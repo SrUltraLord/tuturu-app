@@ -6,7 +6,7 @@ necesidades por materia y distancia.
 
 
 
-## Para clomar
+## Para clonar
 
 Para clonar el código, ejecuta este comando git.
 
